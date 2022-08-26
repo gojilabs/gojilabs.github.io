@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./index.css" />
+    <title>Document</title>
+  </head>
+  <body style="margin: 0">
+    <div class="goji-image-wrapper">
+      <div class="goji-before-img">
+        <img src="./assets/images/before-min.JPG" />
+      </div>
+      <div class="goji-medium-img">
+        <img src="./assets/images/medium-min.JPG" />
+      </div>
+      <div class="goji-premium-img">
+        <img src="./assets/images/premium-min.JPG" />
+      </div>
+      <div class="goji-text-box">
+        <div class="goji-shine-score">Shine score</div>
+        <div class="goji-heading">Masters of Polishing</div>
+        Lorem ipsum dolor sit amet, consectetur <br />
+        adipiscing elit. At tristique faucibus dui urna <br />
+        mattis. Pharetra
+      </div>
+      <div class="goji-input-wrapper">
+        <div>
+          <input
+            type="range"
+            min="1"
+            max="200"
+            value="1"
+            class="goji-input"
+            id="goji-bar"
+          />
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    let slider = document.getElementById("goji-bar");
+
+    let root = document.documentElement;
+
+    slider.oninput = function () {
+      var value = ((this.value - this.min) / (this.max - this.min)) * 100;
+      this.style.background =
+        "linear-gradient(to right, #DADCDE 0%, #004077 " +
+        value +
+        "%, #97999b " +
+        value +
+        "%,  #97999b 100%)";
+
+      if (this.value < 100) {
+        root.style.setProperty("--before-opacity", 1);
+        root.style.setProperty("--premium-opacity", 0);
+        root.style.setProperty("--medium-opacity", this.value / 100);
+      } else {
+        root.style.setProperty("--before-opacity", 0);
+        root.style.setProperty("--medium-opacity", 2 - this.value / 100);
+        root.style.setProperty("--premium-opacity", 1);
+      }
+      // if (this.value < 100) {
+      //     root.style.setProperty('--premium-opacity', 0)
+      // }
+    };
+  </script>
+</html>
