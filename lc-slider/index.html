@@ -13,20 +13,32 @@
   <body style="margin: 0">
     <div class="goji-image-wrapper">
       <div class="goji-before-img">
-        <img src="./assets/images/before-min.JPG" />
+        <img src="./assets/images/before-min.JPG" alt="before-image" />
       </div>
       <div class="goji-medium-img">
-        <img src="./assets/images/medium-min.JPG" />
+        <img src="./assets/images/medium-min.JPG" alt="medium-image" />
       </div>
       <div class="goji-premium-img">
-        <img src="./assets/images/premium-min.JPG" />
+        <img src="./assets/images/premium-min.JPG" alt="premium-image" />
       </div>
       <div class="goji-text-box">
-        <div class="goji-shine-score">Shine score</div>
-        <div class="goji-heading">Masters of Polishing</div>
-        Lorem ipsum dolor sit amet, consectetur <br />
-        adipiscing elit. At tristique faucibus dui urna <br />
-        mattis. Pharetra
+        <div class="goji-shine-score-heading">
+          Shine score
+          <div class="goji-shine-score">
+            <div class="goji-score-before">1</div>
+            <div class="goji-score-medium">5</div>
+            <div class="goji-score-premium">9</div>
+          </div>
+        </div>
+        <div class="goji-text-box-inner">
+          <div class="goji-heading">Masters of Polishing</div>
+          Lorem ipsum dolor sit amet, consectetur <br />
+          adipiscing elit. At tristique faucibus dui urna <br />
+          mattis. Pharetra
+        </div>
+        <a class="goji-link" id="goji-link" href="http://localhost:8080">
+          Click here to get your car’s ShineScore!
+        </a>
       </div>
       <div class="goji-input-wrapper">
         <div>
@@ -43,32 +55,5 @@
     </div>
   </body>
 
-  <script>
-    let slider = document.getElementById("goji-bar");
-
-    let root = document.documentElement;
-
-    slider.oninput = function () {
-      var value = ((this.value - this.min) / (this.max - this.min)) * 100;
-      this.style.background =
-        "linear-gradient(to right, #DADCDE 0%, #004077 " +
-        value +
-        "%, #97999b " +
-        value +
-        "%,  #97999b 100%)";
-
-      if (this.value < 100) {
-        root.style.setProperty("--before-opacity", 1);
-        root.style.setProperty("--premium-opacity", 0);
-        root.style.setProperty("--medium-opacity", this.value / 100);
-      } else {
-        root.style.setProperty("--before-opacity", 0);
-        root.style.setProperty("--medium-opacity", 2 - this.value / 100);
-        root.style.setProperty("--premium-opacity", 1);
-      }
-      // if (this.value < 100) {
-      //     root.style.setProperty('--premium-opacity', 0)
-      // }
-    };
-  </script>
+  <script src="index.js"></script>
 </html>

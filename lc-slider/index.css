@@ -1,7 +1,13 @@
 :root {
-  --before-opacity: 1;
-  --medium-opacity: 0;
-  --premium-opacity: 0;
+  --goji-before-img-opacity: 1;
+  --goji-medium-img-opacity: 0;
+  --goji-premium-img-opacity: 0;
+  --goji-before-score-opacity: 1;
+  --goji-medium-score-opacity: 0;
+  --goji-premium-score-opacity: 0;
+  --goji-text-height: 103px;
+  --goji-text-opacity: 1;
+  --goji-text-mb: 33px;
 }
 
 @font-face {
@@ -45,7 +51,7 @@ div {
   width: 100%;
   position: absolute;
   z-index: 1;
-  opacity: var(--before-opacity);
+  opacity: var(--goji-before-img-opacity);
 }
 
 .goji-medium-img {
@@ -53,7 +59,7 @@ div {
   height: 100%;
   position: absolute;
   z-index: 3;
-  opacity: var(--medium-opacity);
+  opacity: var(--goji-medium-img-opacity);
 }
 
 .goji-premium-img {
@@ -61,12 +67,13 @@ div {
   height: 100%;
   position: absolute;
   z-index: 2;
-  opacity: var(--premium-opacity);
+  opacity: var(--goji-premium-img-opacity);
 }
 
 .goji-text-box {
   position: absolute;
   top: 95px;
+  width: 420px;
   left: 123px;
   z-index: 5;
   background: rgba(255, 255, 255, 0.25);
@@ -76,6 +83,26 @@ div {
   font-family: Montserrat, sans-serif;
   font-weight: 500;
   font-size: 16px;
+  transition: 0.3s;
+}
+
+.goji-text-box-inner {
+  height: var(--goji-text-height);
+  margin-bottom: var(--goji-text-mb);
+  opacity: var(--goji-text-opacity);
+  overflow: hidden;
+  transition: height 0.3s, opacity 1s;
+}
+
+.goji-link {
+  background-color: #0075be;
+  padding: 14px;
+  width: 100%;
+  color: white;
+  text-decoration: none;
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
 }
 
 .goji-heading {
@@ -85,16 +112,44 @@ div {
   margin-bottom: 8px;
 }
 
-.goji-shine-score {
+.goji-shine-score-heading {
   font-family: HighTide, sans-serif;
   margin-bottom: 33px;
   font-size: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.goji-score {
+.goji-shine-score {
+  height: 86px;
+  width: 86px;
+  border-radius: 50%;
+  background-color: #4b4a46;
+  color: #f2f3ee;
+  border: 1px solid #f2f3ee;
+  text-align: center;
+  font-size: 48px;
+  line-height: 86px;
+  font-family: Montserrat, sans-serif;
+  position: relative;
+}
+
+.goji-shine-score div {
   position: absolute;
-  bottom: 28px;
-  right: 50px;
+  transition: 0.3s;
+  width: 30px;
+  left: 28px;
+}
+
+.goji-score-before {
+  opacity: var(--goji-before-score-opacity);
+}
+.goji-score-medium {
+  opacity: var(--goji-medium-score-opacity);
+}
+.goji-score-premium {
+  opacity: var(--goji-premium-score-opacity);
 }
 
 .goji-input-wrapper {
