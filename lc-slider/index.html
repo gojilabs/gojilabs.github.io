@@ -7,24 +7,35 @@
       content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./index.css" />
+    <!--  You will probably change names of files and their location will be different-->
+    <!--  Update path to file in href attribute accordingly-->
+    <link rel="stylesheet" href="lc-widget-styles.css" />
     <title>Document</title>
   </head>
   <body style="margin: 0">
-    <div class="goji-image-wrapper">
+    <div class="goji-widget-wrapper">
       <div class="goji-before-img">
+        <!--        link to first image can be changed here in src attribute-->
         <img src="./assets/images/before-min.JPG" alt="before-image" />
       </div>
       <div class="goji-medium-img">
+        <!--        link to second image can be changed here in src attribute-->
         <img src="./assets/images/medium-min.JPG" alt="medium-image" />
       </div>
       <div class="goji-premium-img">
+        <!--        link to third image can be changed here in src attribute-->
         <img src="./assets/images/premium-min.JPG" alt="premium-image" />
       </div>
       <div class="goji-text-box">
         <div class="goji-shine-score-heading">
-          Shine score
+          Shine Score
           <div class="goji-shine-score">
+            <img
+              height="90px"
+              width="90px"
+              src="./assets/images/badge.png"
+              alt="shine-score-badge"
+            />
             <div class="goji-score-before">1</div>
             <div class="goji-score-medium">5</div>
             <div class="goji-score-premium">9</div>
@@ -32,11 +43,12 @@
         </div>
         <div class="goji-text-box-inner">
           <div class="goji-heading">Masters of Polishing</div>
-          Lorem ipsum dolor sit amet, consectetur <br />
-          adipiscing elit. At tristique faucibus dui urna <br />
-          mattis. Pharetra
+          <!--          Replace this dummy text with the one you want to use-->
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. At tristique
+          faucibus dui urna mattis. Pharetra
         </div>
-        <a class="goji-link" id="goji-link" href="http://localhost:8080">
+        <!--        Here is call-to-action link-button. Href is managed in lc-widget.js file on line 4.-->
+        <a class="goji-link" id="goji-link">
           Click here to get your car’s ShineScore!
         </a>
       </div>
@@ -54,6 +66,7 @@
       </div>
     </div>
   </body>
-
-  <script src="index.js"></script>
+  <!--  You will probably change names of files and their location will be different-->
+  <!--  Update path to file in href attribute accordingly-->
+  <script src="lc-widget.js"></script>
 </html>

@@ -1,6 +1,7 @@
 const slider = document.getElementById("goji-bar");
 const anchor = document.getElementById("goji-link");
-const url = new URL("https://localhost:8080");
+// Replace this url with url of your landing page
+const url = new URL("https://lakecountrymfg.com/");
 url.searchParams.append("goBackUrl", window.location.href);
 
 anchor.href = url;
@@ -12,9 +13,9 @@ slider.oninput = function () {
   this.style.background =
     "linear-gradient(to right, #DADCDE 0%, #004077 " +
     value +
-    "%, #97999b " +
+    "%, #fff " +
     value +
-    "%,  #97999b 100%)";
+    "%,  #fff 100%)";
 
   if (this.value < 100) {
     root.style.setProperty("--goji-before-img-opacity", 1);
