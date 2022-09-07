@@ -8,6 +8,24 @@ anchor.href = url;
 
 const root = document.documentElement;
 
+const updateScores = (before, medium, premium) => {
+  root.style.setProperty("--goji-before-score-opacity", before);
+  root.style.setProperty("--goji-medium-score-opacity", medium);
+  root.style.setProperty("--goji-premium-score-opacity", premium);
+};
+
+const updateImages = (before, medium, premium) => {
+  root.style.setProperty("--goji-before-img-opacity", before);
+  root.style.setProperty("--goji-medium-img-opacity", medium);
+  root.style.setProperty("--goji-premium-img-opacity", premium);
+};
+
+const updateTextBox = (height, mb, opacity) => {
+  root.style.setProperty("--goji-text-height", height);
+  root.style.setProperty("--goji-text-mb", mb);
+  root.style.setProperty("--goji-text-opacity", opacity);
+};
+
 slider.oninput = function () {
   const value = ((this.value - this.min) / (this.max - this.min)) * 100;
   this.style.background =
@@ -18,33 +36,22 @@ slider.oninput = function () {
     "%,  #fff 100%)";
 
   if (this.value < 100) {
-    root.style.setProperty("--goji-before-img-opacity", 1);
-    root.style.setProperty("--goji-premium-img-opacity", 0);
-    root.style.setProperty("--goji-medium-img-opacity", this.value / 100);
-
-    root.style.setProperty("--goji-before-score-opacity", 1);
-    root.style.setProperty("--goji-medium-score-opacity", 0);
-    root.style.setProperty("--goji-premium-score-opacity", 0);
-  } else if (this.value > 190) {
-    root.style.setProperty("--goji-before-score-opacity", 0);
-    root.style.setProperty("--goji-medium-score-opacity", 0);
-    root.style.setProperty("--goji-premium-score-opacity", 1);
+    updateImages(1, this.value / 100, 0);
   } else {
-    root.style.setProperty("--goji-before-img-opacity", 0);
-    root.style.setProperty("--goji-medium-img-opacity", 2 - this.value / 100);
-    root.style.setProperty("--goji-premium-img-opacity", 1);
-
-    root.style.setProperty("--goji-before-score-opacity", 0);
-    root.style.setProperty("--goji-medium-score-opacity", 1);
-    root.style.setProperty("--goji-premium-score-opacity", 0);
+    updateImages(0, 2 - this.value / 100, 1);
   }
-  if (this.value > 1) {
-    root.style.setProperty("--goji-text-height", "0");
-    root.style.setProperty("--goji-text-mb", "0");
-    root.style.setProperty("--goji-text-opacity", "0");
+
+  if (this.value < 50) {
+    updateScores(1, 0, 0);
+  } else if (this.value > 150) {
+    updateScores(0, 0, 1);
   } else {
-    root.style.setProperty("--goji-text-height", "103px");
-    root.style.setProperty("--goji-text-mb", "33px");
-    root.style.setProperty("--goji-text-opacity", "1");
+    updateScores(0, 1, 0);
+  }
+
+  if (this.value > 1) {
+    updateTextBox("0", "0", "0");
+  } else {
+    updateTextBox("103px", "33px", "1");
   }
 };
