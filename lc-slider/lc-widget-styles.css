@@ -220,11 +220,89 @@ div {
 }
 
 .goji-input::-moz-range-thumb {
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background-color: white;
   box-shadow: 0 16px 24px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04),
     0 0 1px rgba(0, 0, 0, 0.04);
   cursor: pointer;
+}
+
+@media only screen and (max-width: 700px) {
+  .goji-text-box {
+    left: calc(50% - 457px / 2);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .goji-widget-wrapper {
+    height: 844px;
+  }
+
+  .goji-text-box {
+    max-width: 326px;
+    left: calc(50% - 326px / 2);
+    font-size: 14px;
+    bottom: 145px;
+    top: unset;
+  }
+
+  .goji-shine-score-heading {
+    margin-bottom: 15px;
+    font-size: 52px;
+  }
+
+  .goji-shine-score {
+    height: 45px;
+    width: 45px;
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  .goji-shine-score img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .goji-shine-score div {
+    position: absolute;
+    transition: 0.3s;
+    width: 15px;
+    left: 15px;
+    bottom: 13px;
+  }
+
+  .goji-heading {
+    font-size: 20px;
+  }
+
+  .goji-link {
+    font-size: 13px;
+  }
+
+  .goji-before-img img,
+  .goji-medium-img img,
+  .goji-premium-img img {
+    border-width: 16px;
+  }
+
+  .goji-input {
+    width: 94%;
+    height: 12px;
+    border-radius: 12px;
+    background: #fff;
+    bottom: -28px;
+    left: 9px;
+  }
+
+  .goji-input::-webkit-slider-thumb {
+    width: 24px;
+    height: 24px;
+  }
+
+  .goji-input::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+  }
 }
